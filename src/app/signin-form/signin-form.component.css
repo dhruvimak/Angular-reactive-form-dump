@@ -1,0 +1,17 @@
+form {
+    margin: 0 auto;
+    max-width: 40%;
+  }
+  
+  * {
+    margin: 10px auto;
+  }
+
+  .has-error{
+    border: 2px solid red;
+  }
+
+  .error>*{
+    color: red;
+  }
+  

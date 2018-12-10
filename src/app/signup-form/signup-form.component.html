@@ -1,0 +1,124 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="border border-light p-5">
+
+	<p class="h4 mb-4 text-center">Sign up</p>
+
+	<input type="text" formControlName="fullName" class="form-control" placeholder="First name">
+
+	<input type="email" formControlName="email" class="form-control mb-4" placeholder="E-mail">
+
+	<label class="custom-label">Skill</label>
+
+	<div formGroupName="skills" class="border border-primary">
+
+		<input type="text" formControlName="skillName" class="form-control" placeholder="Skill name">
+
+		<input type="text" formControlName="experianceInYears" class="form-control" placeholder="Experiance in years">
+
+		<div class="form-group custom-control-inline">
+			<input type="radio" formControlName="proficency" value="Begginer">Begginer
+			<input type="radio" formControlName="proficency" value="Intermediate">Intermediate
+			<input type="radio" formControlName="proficency" value="Advancedng">Advanced
+		</div>
+
+	</div>
+
+
+	<!-- <div class="row">
+    <div class="col">
+      
+    </div>
+    <div class="col">
+    </div>
+  </div>
+  
+  <div class="custom-control custom-radio custom-control-inline">
+    <input type="radio" class="custom-control-input" id="defaultInline1" >
+    <label class="custom-control-label" for="defaultInline1"></label>
+  </div>
+  
+  <div class="custom-control custom-radio custom-control-inline">
+    <input type="radio" class="custom-control-input" id="defaultInline2" >
+    <label class="custom-control-label" for="defaultInline2"></label>
+  </div>
+  
+  <div class="custom-control custom-radio custom-control-inline">
+    <input type="radio" class="custom-control-input" id="defaultInline3" >
+    <label class="custom-control-label" for="defaultInline3"></label>
+  </div> -->
+
+	<!-- <input type="password" class="form-control" placeholder="Password">
+    
+    <select class="browser-default custom-select mb-4" id="select">
+      <option value="" disabled="" selected="">Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample">
+      <label class="custom-control-label" for="defaultInline1">1</label>
+    </div>
+    
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
+      <label class="custom-control-label" for="defaultInline2">2</label>
+    </div>
+    
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample">
+      <label class="custom-control-label" for="defaultInline3">3</label>
+    </div>
+    
+    <label for="select">Default select</label>
+    <select class="browser-default custom-select mb-4" id="select2">
+      <option value="" disabled="" selected="">Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    
+    <div class="custom-control custom-checkbox mb-4">
+      <input type="checkbox" class="custom-control-input" id="checkbox">
+      <label class="custom-control-label" for="checkbox">Default checkbox</label>
+    </div>
+    
+    <small class="form-text text-muted mb-4">Minimal 8 characters lenght</small>
+    
+    <input type="text" class="form-control" placeholder="Phone number">
+    
+    <small class="form-text text-muted mb-4">Optional - for two step authentication</small>
+    
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input">
+      <label class="custom-control-label" for="defaultRegisterFormNewsletter">Subscribe to our newsletter</label>
+    </div>-->
+
+	<button class="btn btn-info my-4 btn-block" type="submit">Sign up</button>
+	<button class="btn btn-info my-4 btn-block" type="button" (click)="onLoadDataClick()">Load Data</button>
+
+	<!-- <div class="text-center">
+      <p>or sign up with:</p>
+      
+      <a type="button" class="light-blue-text mx-2">
+        <i class="fa fa-facebook"></i>
+      </a>
+      <a type="button" class="light-blue-text mx-2">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a type="button" class="light-blue-text mx-2">
+        <i class="fa fa-linkedin"></i>
+      </a>
+      <a type="button" class="light-blue-text mx-2">
+        <i class="fa fa-github"></i>
+      </a> 
+      
+      <hr> 
+      
+      <p>By clicking
+        <em>Sign up</em> you agree to our
+        <a href="" target="_blank">terms of service</a> and
+        <a href="" target="_blank">terms of service</a>.
+      </p>
+    </div> -->
+</form>

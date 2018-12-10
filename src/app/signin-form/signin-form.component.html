@@ -1,0 +1,94 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="border border-light p-5">
+
+	<p class="h4 mb-4 text-center">Sign up</p>
+
+	<input type="text" formControlName="fullName" class="form-control" placeholder="First name" [ngClass]="{ 'has-error': formErrors.fullName }"
+	 (blur)="logValidationErrors()" />
+
+	<span *ngIf="formErrors.fullName" class="error">{{ formErrors.fullName }}</span>
+
+	<label class="custom-label">Contact Preference</label>
+
+	<div class="form-group custom-control-inline" [ngClass]="{ 'has-error': formErrors.contact }" (blur)="logValidationErrors()">
+
+		<input type="radio" formControlName="contact" value="phone" />phone
+
+		<input type="radio" formControlName="contact" value="email" />E-mail
+
+	</div>
+
+	<input type="text" formControlName="phone" class="form-control" placeholder="phone" [ngClass]="{ 'has-error': formErrors.phone }"
+	 (blur)="logValidationErrors()" />
+
+	<span *ngIf="formErrors.phone" class="error">{{ formErrors.phone }}</span>
+
+	<input type="email" formControlName="email" class="form-control mb-4" placeholder="E-mail" [ngClass]="{ 'has-error': formErrors.email }"
+	 (blur)="logValidationErrors()" />
+
+	<span *ngIf="formErrors.email" class="error">{{ formErrors.email }}</span>
+
+	<label class="custom-label">Skill</label>
+
+	<button class="btn btn-info my-4 btn-block" type="button" (click)="onAddSkillButtonClick()">
+		Add Skill
+	</button>
+
+	<div formArrayName="skills" *ngFor="let skill of signupForm.get('skills').controls; let i =  index">
+
+		<div [formGroupName]="i" class="border border-primary">
+
+			<input type="text" formControlName="skillName" class="form-control" placeholder="Skill name" [ngClass]="{ 'has-error': skill.get('skillName').touched &&  skill.get('skillName').invalid}" />
+
+			<span *ngIf="skill.get('skillName').touched &&  skill.get('skillName').errors?.required" class="error">Skill Name is
+				required</span>
+
+			<input type="text" formControlName="experianceInYears" class="form-control" placeholder="Experiance in years"
+			 [ngClass]="{ 'has-error': skill.get('experianceInYears').touched &&  skill.get('experianceInYears').invalid }" />
+
+			<span *ngIf="skill.get('experianceInYears').touched &&  skill.get('experianceInYears').errors?.required" class="error">
+				experiance in Years is required</span>
+
+			<div class="form-group custom-control-inline" [ngClass]="{ 'has-error': skill.get('proficency').touched &&  skill.get('proficency').invalid }"></div>
+
+			<input type="radio" formControlName="proficency" value="Begginer" />Begginer
+
+			<input type="radio" formControlName="proficency" value="Intermediate" />Intermediate
+
+			<input type="radio" formControlName="proficency" value="Advancedng" />Advanced
+
+		</div>
+
+		<span *ngIf="skill.get('proficency').touched &&  skill.get('proficency').errors?.required" class="error">proficency
+			is
+			required</span>
+		<button class="btn btn-info my-4 btn-block" type="button" *ngIf="signupForm.get('skills').length>1"
+			(click)="removeSkillGroup(i)">Delete</button>
+
+	</div>
+
+
+
+	<div formGroupName="passwordSet">
+
+		<input type="password" formControlName="password" class="form-control" placeholder="Password" [ngClass]="{ 'has-error': formErrors.password }"
+		 (blur)="logValidationErrors()" />
+
+		<span *ngIf="formErrors.password" class="error">{{ formErrors.password }}</span>
+
+		<input type="password" formControlName="confirmPassword" class="form-control" placeholder="Confirm Password"
+		 [ngClass]="{ 'has-error': formErrors.confirmPassword ? formErrors.confirmPassword : formErrors.passwordSet }" (blur)="logValidationErrors()" />
+
+		<span *ngIf="formErrors.confirmPassword || formErrors.passwordSet" class="error">
+			{{ formErrors.confirmPassword ? formErrors.confirmPassword : formErrors.passwordSet }}
+		</span>
+
+	</div>
+
+
+	<button class="btn btn-info my-4 btn-block" type="submit">Sign up</button>
+
+	<button class="btn btn-info my-4 btn-block" type="button" (click)="onLoadDataClick()">
+		Load Data
+	</button>
+
+</form>
